@@ -1,0 +1,30 @@
+<%- include('../head.ejs', {title: 'Login' }) %>
+
+<%- include('./errors.ejs') %>
+
+<div class="forms">
+  <!-- Login -->
+  <fieldset>
+    <legend> Login </legend>
+    <form action="/login" method="post">
+      Email: <input type="email" name="email">
+      Password: <input type="password" name="password">
+
+      <button> Login </button>
+    </form>
+  </fieldset>
+
+  <!-- Register -->
+  <fieldset>
+    <legend> Register </legend>
+    <form action="/register" method="post">
+      Name: <input type="text" name="username">
+      Email: <input type="email" name="email">
+      Password: <input type="password" name="password">
+
+      <button> Register </button>
+    </form>
+  </fieldset>
+</div>
+
+<%- include('../footer.ejs') %>
