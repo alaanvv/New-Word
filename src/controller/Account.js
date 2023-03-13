@@ -12,7 +12,9 @@ const login = async (req, res) => {
     req.flash('error', account.errors)
     return res.redirect('back')
   }
-  res.send(`Logged as ${account.username}`)
+
+  req.session.user = { username: account.username, email: account.email, points: account.points } 
+  res.redirect('/game')
 }
 
 const register = async (req, res) => {
@@ -22,8 +24,15 @@ const register = async (req, res) => {
   if (account.errors.length) {
     req.flash('error', account.errors)
     return res.redirect('back')
-  }
-  res.send(`Logged as ${account.username}`)
+  }  
+
+  req.session.user = { username: account.username, email: account.email, points: account.points }
+  res.redirect('/game')
 }
 
-module.exports = { page, login, register }
+const logout = async (req, res) => {
+  req.session.user = undefined
+  res.redirect('/')
+}
+
+module.exports = { page, login, register, logout }

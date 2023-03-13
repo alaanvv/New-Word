@@ -13,7 +13,10 @@ app.set('views', './src/views')
 // Middlewares
 app.use(session({ secret: process.env.TOKEN, resave: false, saveUninitialized: true }))
 app.use(flash())
-app.use((req, res, next) => { res.locals.errors = req.flash('error'); next() })
+app.use((req, res, next) => {
+  res.locals.errors = req.flash('error')
+  next() 
+})
 app.use(express.urlencoded({ extended: true }))
 app.use(router)
 

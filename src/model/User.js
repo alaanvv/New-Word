@@ -16,6 +16,7 @@ class User {
     if (!res[0]) return this.errors = ['Account doesnt exist']
     
     this.username = res[0].username
+    this.points = res[0].points || 0
   }
 
   async register() {

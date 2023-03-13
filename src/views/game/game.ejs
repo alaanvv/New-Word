@@ -1,0 +1,21 @@
+<%- include('../head.ejs', {title: 'Login - New Word' }) %>
+
+<%- include('./errors.ejs') %>
+
+<p class="center">
+  Logged as <%= username %> <br>
+  Points: <%= points %>
+</p>
+
+<form action="/post" method="post">
+  <textarea name="text" cols="30" rows="10" placeholder="Type here something that nobody ever typed, if you type something new, you gain 1 point, if else, u loose 1"></textarea>
+
+  <button> Send </button>
+</form>
+
+<div class="footer">
+  <a href="/ranking"> Ranking </a> <br>
+  <a href="/logout"> Logout </a>
+</div>
+
+<%- include('../footer.ejs') %>

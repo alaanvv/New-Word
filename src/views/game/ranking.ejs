@@ -1,0 +1,11 @@
+<%- include('../head.ejs', {title: 'Login - New Word' }) %>
+
+<a href="/game"> &lt; Back </a>
+
+<p class="center">
+  <% for (user of data) { %>
+    <%= user.username %>: <%= user.points %> <br>
+  <% } %>
+</p>
+
+<%- include('../footer.ejs') %>
